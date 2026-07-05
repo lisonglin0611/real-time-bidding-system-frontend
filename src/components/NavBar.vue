@@ -1,11 +1,13 @@
 <template>
   <nav>
     <div>
-      <router-link to="/">Auctions</router-link>
+      <router-link to="/">JLZ Auctions</router-link>
     </div>
     <div>
       <template v-if="auth.isAuthenticated">
-        <span style="color: #fff; margin-right: 12px;">Hi, {{ auth.username }}</span>
+        <span style="color: #fff; margin-right: 12px"
+          >Hi, {{ auth.username }}</span
+        >
         <button @click="handleLogout">Log out</button>
       </template>
       <template v-else>
@@ -17,14 +19,14 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-import { useAuthStore } from '../store/auth'
+import { useRouter } from "vue-router";
+import { useAuthStore } from "../store/auth";
 
-const auth = useAuthStore()
-const router = useRouter()
+const auth = useAuthStore();
+const router = useRouter();
 
 function handleLogout() {
-  auth.logout()
-  router.push('/')
+  auth.logout();
+  router.push("/");
 }
 </script>
